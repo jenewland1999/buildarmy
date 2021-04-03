@@ -1,0 +1,38 @@
+{
+  "name": "buildarmy",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Jordan Newland <github@jenewland.me.uk> (https://jenewland.me.uk/)",
+  "description": "Previously a WordPress and WooCommerce website, Buildarmy has been transformed into a headless e-commerce store utilising a modern open-source stack. Through hybrid rendering techniques and a decoupled architecture, the project achieves its goals of improved core web vitals and a better end-user experience for customers. Designed and developed in partial fulfilment of the requirements for the degree of BSc (Hons) Computing (Software Engineering) at The University of Northampton.",
+  "keywords": [
+    "graphql",
+    "website",
+    "nextjs",
+    "assignment",
+    "student",
+    "dissertation",
+    "undergraduate",
+    "tailwindcss",
+    "headless-wordpress",
+    "headless-ecommerce",
+    "core-web-vitals",
+    "headless-woocommerce"
+  ],
+  "license": "All Rights Reserved",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jenewland1999/buildarmy.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "next": "^10.1.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
