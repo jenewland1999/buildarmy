@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: (theme) => ({
-        "homepage-hero": "url('/Hero__img@2x.jpg')",
+        "homepage-hero": "url('/images/Hero__img@2x.jpg')",
       }),
       colors: {
         transparent: "transparent",

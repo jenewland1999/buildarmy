@@ -27,11 +27,11 @@ class MyDocument extends Document {
           <link
             rel="preload"
             as="style"
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap"
           />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap"
             media="print"
             // @ts-ignore
             onLoad="this.media='all'"
@@ -39,7 +39,7 @@ class MyDocument extends Document {
           <noscript>
             <link
               rel="stylesheet"
-              href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap"
+              href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap"
             />
           </noscript>
         </Head>
