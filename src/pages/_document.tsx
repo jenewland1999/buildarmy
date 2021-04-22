@@ -29,13 +29,21 @@ class MyDocument extends Document {
             as="style"
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap"
           />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-            media="print"
-            // @ts-ignore
-            onLoad="this.media='all'"
-          />
+          {/* https://github.com/vercel/next.js/issues/12984 ¯\_(ツ)_/¯ */}
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                </style>
+                  <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+                    media="print"
+                    onload="this.media = 'all';"
+                  />
+                <style>
+              `,
+            }}
+          ></style>
           <noscript>
             <link
               rel="stylesheet"
