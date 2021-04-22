@@ -58,10 +58,9 @@ const ProductCard = ({
               </span>
             </p>
             <Button variant="primary" size="lg">
-              <span className="sr-only sm:not-sr-only">Add to Cart</span>
               <FontAwesomeIcon
                 icon="cart-plus"
-                className="not-sr-only sm:hidden"
+                title={`Add ${prodName} to cart`}
               />
             </Button>
           </div>
