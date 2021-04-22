@@ -18,11 +18,11 @@ const HomePage = () => (
         <h1 className="mb-2 text-[3.5rem] leading-[67px] text-secondary-darkest font-serif font-bold">
           World War In <span className="text-accent">Bricks</span>.
         </h1>
-        <p className="mb-4  font-medium leading-loose text-secondary-darkest">
+        <p className="mb-4  font-semibold leading-loose text-secondary-darkest">
           Build your armies with{" "}
-          <span className="bg-accent-lightest p-0.5 rounded">original</span>,{" "}
-          <span className="bg-accent-lightest p-0.5 rounded">premium</span>, and{" "}
-          <span className="bg-accent-lightest p-0.5 rounded">
+          <span className="bg-accent px-0.5 rounded">original</span>,{" "}
+          <span className="bg-accent px-0.5 rounded">premium</span>, and{" "}
+          <span className="bg-accent px-0.5 rounded">
             historically accurate
           </span>{" "}
           brick scale models and mini-figures.
