@@ -12,6 +12,14 @@ import {
   faCrown,
   faStar,
   faStarHalf,
+  faPaperPlane,
+  faFlag,
+  faAdjust,
+  faCartPlus,
+  faBook,
+  faChevronCircleRight,
+  faDollarSign,
+  faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { faLifeRing } from "@fortawesome/free-regular-svg-icons";
 
@@ -28,5 +36,13 @@ library.add(
   faGlobe,
   faCrown,
   faStar,
-  faStarHalf
+  faStarHalf,
+  faPaperPlane,
+  faFlag,
+  faAdjust,
+  faCartPlus,
+  faBook,
+  faChevronCircleRight,
+  faDollarSign,
+  faCaretDown
 );

@@ -1,10 +1,12 @@
+import { ComponentPropsWithoutRef } from "react";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 
 import Button from "./Button";
 import ProductRating from "./ProductRating";
-
-type ProductCardProps = {
+interface ProductCardProps extends ComponentPropsWithoutRef<"a"> {
   prodId: string;
   prodName: string;
   prodImage: {
@@ -16,7 +18,7 @@ type ProductCardProps = {
   prodSlug: string;
   prodRegularPrice: string;
   prodSalePrice: string;
-};
+}
 
 const ProductCard = ({
   prodId,
@@ -26,34 +28,46 @@ const ProductCard = ({
   prodTags,
   prodSlug,
   prodRegularPrice,
+  prodSalePrice,
+  ...props
 }: ProductCardProps) => (
-  <Link href={`/shop/product/${prodSlug}`}>
-    <article className="bg-primary-lightest shadow-lg">
-      <Image
-        src={prodImage.sourceUrl}
-        alt={prodImage.altText}
-        layout="responsive"
-        height={3}
-        width={4}
-      />
-      <div className="p-4">
-        <h3 className="text-secondary-darkest mb-2 font-display font-bold">
-          {prodName}
-        </h3>
-        <ProductRating className="mb-4" rating={prodAvgRating} />
-        <div className="flex justify-between items-center">
-          <p className="text-secondary-darkest text-2xl font-display font-bold">
-            {prodRegularPrice}{" "}
-            <span className="text-primary-darkest text-sm font-body font-normal">
-              inc. VAT
-            </span>
-          </p>
-          <Button variant="primary" size="lg">
-            Add to Cart
-          </Button>
+  <Link href={`/shop/product/${prodSlug}`} passHref>
+    <a {...props}>
+      <article className="bg-primary-lightest shadow-lg">
+        <Image
+          src={prodImage.sourceUrl}
+          alt={prodImage.altText}
+          layout="responsive"
+          height={3}
+          width={4}
+        />
+        <div className="p-4">
+          <ul>
+            {prodTags &&
+              prodTags.map((tag, index) => <li key={index}>{tag}</li>)}
+          </ul>
+          <h3 className="text-secondary-darkest mb-2 font-serif font-bold">
+            {prodName}
+          </h3>
+          <ProductRating className="mb-4" rating={prodAvgRating} />
+          <div className="flex justify-between items-center">
+            <p className="text-secondary-darkest text-2xl font-serif font-bold">
+              {prodRegularPrice}{" "}
+              <span className="text-primary-darkest text-sm  font-normal">
+                inc. VAT
+              </span>
+            </p>
+            <Button variant="primary" size="lg">
+              <span className="sr-only sm:not-sr-only">Add to Cart</span>
+              <FontAwesomeIcon
+                icon="cart-plus"
+                className="not-sr-only sm:hidden"
+              />
+            </Button>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </a>
   </Link>
 );
 

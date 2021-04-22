@@ -1,28 +1,24 @@
+import Link from "next/link";
+
 import Banner from "@components/Banner";
 import Button from "@components/Button";
 import Category from "@components/Category";
 import Layout from "@components/Layout";
 import ProductCard from "@components/ProductCard";
-import ProductRating from "@components/ProductRating";
 import SectionHeading from "@components/SectionHeading";
 import USP from "@components/USP";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
 
 const HomePage = () => (
   <Layout>
-    <div
-      className="grid place-items-center min-h-screen bg-homepage-hero bg-cover"
-      style={{ minHeight: "calc(100vh - 72px)" }}
-    >
+    <div className="grid place-items-center min-h-screen bg-homepage-hero bg-cover bg-center md:min-h-0 md:py-48">
       <section
         id="hero"
         className="container px-4 mx-auto max-w-[360px] text-center"
       >
-        <h1 className="mb-2 text-[3.5rem] leading-[67px] text-secondary-darkest font-display font-bold">
+        <h1 className="mb-2 text-[3.5rem] leading-[67px] text-secondary-darkest font-serif font-bold">
           World War In <span className="text-accent">Bricks</span>.
         </h1>
-        <p className="mb-4 font-body font-medium leading-loose text-secondary-darkest">
+        <p className="mb-4  font-medium leading-loose text-secondary-darkest">
           Build your armies with{" "}
           <span className="bg-accent-lightest p-0.5 rounded">original</span>,{" "}
           <span className="bg-accent-lightest p-0.5 rounded">premium</span>, and{" "}
@@ -44,7 +40,7 @@ const HomePage = () => (
       </section>
     </div>
     <section id="usps" className="container px-4 py-8 mx-auto -mt-24 mb-4">
-      <ul>
+      <ul className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-4 xl:grid-cols-4">
         <USP
           icon="percent"
           title="Multibuy Discount"
@@ -69,46 +65,49 @@ const HomePage = () => (
         />
       </ul>
     </section>
-    <section
-      id="categories"
-      className="container px-4 py-8 mx-auto bg-primary-light"
-    >
-      <SectionHeading title="Product Categories" />
-      <ul className="grid grid-cols-2 gap-4 mb-8">
-        <li>
-          <Category
-            image="/images/categories/wwii-artillery.jpg"
-            name="WWII Artillery"
-            href="#"
-          />
-        </li>
-        <li>
-          <Category
-            image="/images/categories/wwii-light-vehicles.jpg"
-            name="WWII Light Vehicles"
-            href="#"
-          />
-        </li>
-        <li>
-          <Category
-            image="/images/categories/wwii-planes.jpg"
-            name="WWII Planes"
-            href="#"
-          />
-        </li>
-        <li>
-          <Category
-            image="/images/categories/wwii-tanks.jpg"
-            name="WWII Tanks"
-            href="#"
-          />
-        </li>
-      </ul>
-      <Link href="/shop/categories/" passHref>
-        <Button variant="secondary" block>
-          View all Categories
-        </Button>
-      </Link>
+    <section id="categories" className="bg-primary-light py-8 lg:py-16">
+      <div className="container mx-auto px-4 relative">
+        <SectionHeading title="Product Categories" />
+        <ul className="mb-8 sm:mb-0 grid gap-4 grid-cols-2 sm:grid-cols-4">
+          <li>
+            <Category
+              image="/images/categories/wwii-artillery.jpg"
+              name="WWII Artillery"
+              href="#"
+            />
+          </li>
+          <li>
+            <Category
+              image="/images/categories/wwii-light-vehicles.jpg"
+              name="WWII Light Vehicles"
+              href="#"
+            />
+          </li>
+          <li>
+            <Category
+              image="/images/categories/wwii-planes.jpg"
+              name="WWII Planes"
+              href="#"
+            />
+          </li>
+          <li>
+            <Category
+              image="/images/categories/wwii-tanks.jpg"
+              name="WWII Tanks"
+              href="#"
+            />
+          </li>
+        </ul>
+        <Link href="/shop/categories/" passHref>
+          <Button
+            variant="secondary"
+            block
+            className="sm:absolute sm:top-0 sm:right-4 sm:w-auto"
+          >
+            View all Categories
+          </Button>
+        </Link>
+      </div>
     </section>
     <Banner
       title="It's Competition Time!"
@@ -117,55 +116,81 @@ const HomePage = () => (
         creations for a chance to win a big prize."
       cta="Learn More"
       href="/blog/2020/04/buildarmy-annual-competition"
-      imgSrc="/images/Banner--Competition__img@2x.jpg"
-      imgAlt=""
+      image={{
+        src: "/images/banner-competition.jpg",
+        alt: "",
+        layout: "fill",
+        objectFit: "cover",
+      }}
     />
-    <section
-      className="container mx-auto px-4 py-8 bg-primary-light"
-      id="featured-products"
-    >
-      <SectionHeading title="Featured Products" />
-      <ProductCard
-        prodId="1"
-        prodName="Micro Tanks Bundle - Micro Soldiers, Tanks & House"
-        prodImage={{
-          altText: "",
-          sourceUrl: "/images/ProductCarouselItem__feature-img@2x.jpg",
-        }}
-        prodTags={[]}
-        prodSlug=""
-        prodAvgRating="3.33"
-        prodRegularPrice="£45.99"
-        prodSalePrice=""
-      />
+    <section className="bg-primary-light py-8 lg:py-16" id="featured-products">
+      <div className="container mx-auto px-4 relative">
+        <SectionHeading title="Featured Products" />
+        <ul className="space-y-4 md:space-y-0 md:grid md: grid-cols-2 md:gap-4 xl:grid-cols-4 xl:gap-4">
+          {Array(8)
+            .fill("")
+            .map((_, idx) => (
+              <li key={idx}>
+                <ProductCard
+                  prodId="1"
+                  prodName="Micro Tanks Bundle - Micro Soldiers, Tanks & House"
+                  prodImage={{
+                    altText: "",
+                    sourceUrl:
+                      "/images/ProductCarouselItem__feature-img@2x.jpg",
+                  }}
+                  prodTags={[]}
+                  prodSlug=""
+                  prodAvgRating="3.33"
+                  prodRegularPrice="£45.99"
+                  prodSalePrice=""
+                  className="block max-w-sm"
+                />
+              </li>
+            ))}
+        </ul>
+      </div>
     </section>
     <Banner
       title="Want to earn rewards?"
       description="Buildarmy offers reward points for every purchase. For every pound (£) you spend, you will earn 1 point. 100 points is the equivalent of £1. Register now to start earning points."
       cta="Register"
       href="/about-us/rewards/"
-      imgSrc="/images/Banner--Rewards__img@2x.png"
-      imgAlt=""
+      image={{
+        src: "/images/banner-rewards-md.png",
+        alt: "",
+        layout: "fill",
+        objectFit: "contain",
+      }}
       reversed
     />
-    <section
-      className="container mx-auto px-4 py-8 bg-primary-light"
-      id="featured-products"
-    >
-      <SectionHeading title="Latest Products" />
-      <ProductCard
-        prodId="1"
-        prodName="Micro Tanks Bundle - Micro Soldiers, Tanks & House"
-        prodImage={{
-          altText: "",
-          sourceUrl: "/images/ProductCarouselItem__feature-img@2x.jpg",
-        }}
-        prodTags={[]}
-        prodSlug=""
-        prodAvgRating="3.33"
-        prodRegularPrice="£45.99"
-        prodSalePrice=""
-      />
+    <section className="bg-primary-light py-8 lg:py-16" id="latest-products">
+      <div className="container mx-auto px-4 relative">
+        <SectionHeading title="Latest Products" />
+        <ul className="space-y-4 md:space-y-0 md:grid md: grid-cols-2 md:gap-4 xl:grid-cols-4 xl:gap-4">
+          {Array(8)
+            .fill("")
+            .map((_, idx) => (
+              <li key={idx}>
+                <ProductCard
+                  prodId="1"
+                  prodName="Micro Tanks Bundle - Micro Soldiers, Tanks & House"
+                  prodImage={{
+                    altText: "",
+                    sourceUrl:
+                      "/images/ProductCarouselItem__feature-img@2x.jpg",
+                  }}
+                  prodTags={[]}
+                  prodSlug=""
+                  prodAvgRating="3.33"
+                  prodRegularPrice="£45.99"
+                  prodSalePrice=""
+                  className="block max-w-sm"
+                />
+              </li>
+            ))}
+        </ul>
+      </div>
     </section>
   </Layout>
 );

@@ -36,8 +36,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Source Sans Pro", ...defaultTheme.fontFamily.sans],
-        display: ["Montserrat", "system-ui", "sans-serif"],
-        body: ["Source Sans Pro", "system-ui", "sans-serif"],
+        serif: ["Montserrat", ...defaultTheme.fontFamily.serif],
       },
     },
   },

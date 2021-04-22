@@ -21,11 +21,12 @@ const ProductRating = ({ className, rating, ...props }: ProductRatingProps) => (
   </div>
 );
 
+// TODO: Find a less "hacky" implementation for ratings
 const Rating = ({ icon, total }: { icon: IconProp; total: number }) => (
   <>
     {Array(total)
       .fill("")
-      .map((x, i) => (
+      .map((_, i) => (
         <FontAwesomeIcon key={i} icon={icon} />
       ))}
   </>

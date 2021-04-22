@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const UtilityBar = () => (
-  <div className="bg-white hidden md:block">
+  <div className="bg-white hidden lg:block">
     <div className="xl:container xl:mx-auto px-4 flex items-center justify-between">
       <ul className="flex">
         <li className="py-2 px-3 pl-0">

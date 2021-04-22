@@ -7,7 +7,7 @@ const SectionHeading = ({
 }) => (
   <>
     <h2
-      className={`font-display font-bold text-3xl mb-2 ${
+      className={`font-serif font-bold text-3xl mb-2 ${
         inverse ? "text-primary-lightest" : "text-secondary-darkest"
       }`}
     >
