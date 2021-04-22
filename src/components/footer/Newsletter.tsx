@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Newsletter = () => (
   <section className="flex flex-col">
-    <h3 className="font-serif font-bold mb-2">
+    <h3 className="font-display font-bold mb-2">
       Subscribe to the Buildarmy Newsletter
     </h3>
     <p className=" mb-4">

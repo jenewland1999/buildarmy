@@ -10,30 +10,34 @@ import USP from "@components/USP";
 
 const HomePage = () => (
   <Layout>
-    <div className="grid place-items-center min-h-screen bg-homepage-hero bg-cover bg-center md:min-h-0 md:py-48">
-      <section
-        id="hero"
-        className="container px-4 mx-auto max-w-[360px] text-center"
-      >
-        <h1 className="mb-2 text-[3.5rem] leading-[67px] text-secondary-darkest font-serif font-bold">
-          World War In <span className="text-accent">Bricks</span>.
+    <div className="grid place-items-center pt-28 sm:pt-48 py-48 bg-homepage-hero bg-cover bg-center">
+      <section id="hero" className="container mx-auto px-4">
+        <h1 className="max-w-md mb-2 font-display font-bold text-5xl md:text-7xl">
+          World War <br />
+          In <span className="text-accent">Bricks</span>.
         </h1>
-        <p className="mb-4 font-semibold leading-loose text-secondary-darkest">
+        <p className="max-w-sm mb-4 !leading-loose font-semibold sm:text-lg md:text-xl">
           Build your armies with{" "}
-          <span className="bg-accent px-0.5 rounded">original</span>,{" "}
-          <span className="bg-accent px-0.5 rounded">premium</span>, and{" "}
-          <span className="bg-accent px-0.5 rounded">
-            historically accurate
+          <span className="bg-secondary-dark text-accent px-1 py-0.5 pb-1 rounded">
+            original
+          </span>
+          ,{" "}
+          <span className="bg-secondary-dark text-accent px-1 py-0.5 pb-1 rounded">
+            premium
+          </span>
+          , and{" "}
+          <span className="bg-secondary-dark text-accent px-1 py-0.5 pb-1 rounded">
+            historically-accurate
           </span>{" "}
           brick scale models and mini-figures.
         </p>
         <Link href="/shop/products" passHref>
-          <Button variant="primary" size="lg">
+          <Button variant="primary" size="lg" className="font-semibold">
             Shop Now
           </Button>
         </Link>{" "}
         <Link href="/about-us" passHref>
-          <Button variant="link-secondary" size="lg">
+          <Button variant="link-secondary" size="lg" className="font-semibold">
             Learn More
           </Button>
         </Link>

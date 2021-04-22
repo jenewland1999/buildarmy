@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import NavMenu from "./NavMenu";
+import { useMediaQuery } from "react-responsive";
 
 const productCategories = [
   {
@@ -69,6 +70,7 @@ const productCategories = [
 const MainBar = () => {
   const [isNavOpen, toggleNav] = useCycle(false, true);
   const [searchFormUI, setSearchFormUI] = useState(false);
+  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
 
   return (
     <>
@@ -76,7 +78,7 @@ const MainBar = () => {
         <div className="xl:container xl:mx-auto xl:px-4 flex items-center justify-between">
           <button
             onClick={() => toggleNav()}
-            className="py-5 px-4 text-secondary-darkest border-r border-accent-darkest leading-none lg:hidden"
+            className="py-5 px-4 text-secondary-darkest border-r border-accent-darkest leading-none xl:hidden"
           >
             <FontAwesomeIcon fixedWidth icon="bars" size="2x" />
           </button>
@@ -92,7 +94,7 @@ const MainBar = () => {
             </a>
           </Link>
 
-          <ul className="hidden mx-2 lg:flex">
+          <ul className="hidden mx-2 xl:flex">
             <li>
               <Popover className="relative">
                 {({ open }) => (
@@ -209,11 +211,11 @@ const MainBar = () => {
                 )}
               </Popover>
             </li>
-            <li className="inline-flex items-center p-6 px-8 text-secondary-darkest text-2xl  font-semibold leading-none">
+            <li className="inline-flex items-center p-6 px-8 text-secondary-darkest text-2xl font-semibold leading-none">
               Ranges{" "}
               <FontAwesomeIcon icon="chevron-down" className="ml-2 text-sm" />
             </li>
-            <li className="inline-flex items-center p-6 px-8 text-secondary-darkest text-2xl  font-semibold leading-none">
+            <li className="inline-flex items-center p-6 px-8 text-secondary-darkest text-2xl font-semibold leading-none">
               Support{" "}
               <FontAwesomeIcon icon="chevron-down" className="ml-2 text-sm" />
             </li>
@@ -221,14 +223,14 @@ const MainBar = () => {
 
           <button
             onClick={() => setSearchFormUI(!searchFormUI)}
-            className="p-5 text-secondary-darkest border-l border-accent-darkest inline-flex lg:border-none lg:ml-auto"
+            className="p-5 text-secondary-darkest border-l border-accent-darkest inline-flex lg:border-none xl:ml-auto"
           >
             <FontAwesomeIcon icon="search" size="2x" />
           </button>
-          <button className="p-5 text-secondary-darkest hidden lg:inline-flex">
+          <button className="p-5 text-secondary-darkest hidden xl:inline-flex">
             <FontAwesomeIcon icon="user" size="2x" />
           </button>
-          <button className="p-5 text-secondary-darkest hidden lg:inline-flex">
+          <button className="p-5 text-secondary-darkest hidden xl:inline-flex">
             <FontAwesomeIcon icon="shopping-cart" size="2x" />
           </button>
         </div>
@@ -269,11 +271,9 @@ const MainBar = () => {
           </form>
         )}
       </div>
-      <NavMenu
-        className="fixed inset-0 grid grid-cols-[auto,72px] grid-rows-[repeat(4,72px),auto] max-w-sm lg:hidden"
-        isOpen={isNavOpen}
-        closeHandler={(): void => toggleNav()}
-      />
+      {isTabletOrMobileDevice && (
+        <NavMenu isShowing={isNavOpen} closeHandler={(): void => toggleNav()} />
+      )}
     </>
   );
 };

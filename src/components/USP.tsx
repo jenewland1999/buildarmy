@@ -17,7 +17,7 @@ const USP = ({ icon, title, description, isReversed }: AppProps) => (
       fixedWidth
     />
     <div className={isReversed ? `order-first` : ``}>
-      <h3 className="font-serif font-bold mb-2">{title}</h3>
+      <p className="font-display font-bold mb-2">{title}</p>
       <p>{description}</p>
     </div>
   </li>

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // TODO: Fix button component rendering button elements for non-next.js Link components i.e. <a></a> tags
 const SocialMedia = () => (
   <section className="flex flex-col">
-    <h3 className="font-serif font-bold mb-2">Follow us</h3>
+    <h3 className="font-display font-bold mb-2">Follow us</h3>
     <p className=" mb-4">
       Be sure to follow us on our various social media channels for competitions
       and new product info.

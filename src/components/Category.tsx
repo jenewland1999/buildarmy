@@ -13,7 +13,7 @@ const Category = ({ image, name, href }: AppProps) => (
       <div className="aspect-w-1 aspect-h-1">
         <Image src={image} alt={name} layout="fill" objectFit="scale-down" />
       </div>
-      <h3 className="bg-primary-lightest font-serif font-bold p-2">{name}</h3>
+      <h3 className="bg-primary-lightest font-display font-bold p-2">{name}</h3>
     </a>
   </Link>
 );

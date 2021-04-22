@@ -51,7 +51,7 @@ class MyDocument extends Document {
             />
           </noscript>
         </Head>
-        <body>
+        <body className="font-body text-secondary-darkest">
           <Main />
           <NextScript />
         </body>
