@@ -1,8 +1,5 @@
 import type { AppProps } from "next/app";
 
-// Import Font Awesome Icons
-import "../utils/fontawesome";
-
 // Import Tailwind CSS
 import "../styles/globals.css";
 

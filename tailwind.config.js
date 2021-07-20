@@ -2,13 +2,19 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   mode: "jit",
-  purge: ["./src/**/*.{js,jsx,ts,tsx}"],
-  darkMode: "media", // or 'media' or 'class'
+  purge: [
+    "./src/pages/**/*.{html,js,jsx,ts,tsx}",
+    "./src/components/**/*.{html,js,jsx,ts,tsx}",
+  ],
+  darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {
       backgroundImage: (theme) => ({
-        "homepage-hero": "url('/images/Hero__img@2x.jpg')",
+        "homepage-hero": "url('/images/hero-image.jpg')",
       }),
+      backgroundPosition: {
+        "left-40": "40% 0%",
+      },
       colors: {
         transparent: "transparent",
         current: "currentColor",
@@ -38,10 +44,15 @@ module.exports = {
         display: ["Montserrat", ...defaultTheme.fontFamily.sans],
         body: ["Source Sans Pro", ...defaultTheme.fontFamily.sans],
       },
+      screens: {
+        xs: "375px",
+      },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      borderWidth: ["first", "last"],
+    },
   },
   plugins: [
     require("@tailwindcss/typography"),
