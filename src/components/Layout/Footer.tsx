@@ -146,12 +146,17 @@ const Footer = (props: Props) => {
                 Be the first to hear about brand new sets, promotions, and
                 events taking place within the Buildarmy community.
               </p>
-              <form className="text-secondary-darkest">
+              <form
+                className="text-secondary-darkest"
+                method="post"
+                action="https://buildarmy.com/?na=s"
+              >
                 <label className="flex flex-col space-y-2 sm:flex-row">
                   <span className="sr-only">Email Address</span>
                   <input
                     className="bg-primary-lightest flex-grow border-none rounded-md px-4 py-2.5 text-xl placeholder-primary-darkest sm:rounded-tr-none sm:rounded-br-none "
                     type="email"
+                    name="ne"
                     placeholder="Your email address"
                   />
                   <button
