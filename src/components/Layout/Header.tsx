@@ -368,6 +368,38 @@ const Header = (props: Props) => {
                           aria-hidden="true"
                         />
                       </Popover.Button>
+
+                      <Transition
+                        show={open}
+                        as={React.Fragment}
+                        enter="ease-in-out duration-500"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in-out duration-500"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                      >
+                        <Popover.Overlay className="fixed inset-0 mt-6 top-12 bg-secondary bg-opacity-75 transition-opacity" />
+                      </Transition>
+
+                      <Transition
+                        show={open}
+                        as={React.Fragment}
+                        enter="duration-200 ease-out"
+                        enterFrom="opacity-0 scale-95"
+                        enterTo="opacity-100 scale-100"
+                        leave="duration-100 ease-in"
+                        leaveFrom="opacity-100 scale-100"
+                        leaveTo="opacity-0 scale-95"
+                      >
+                        <Popover.Panel className="absolute z-10 top-full mt-8 mx-3 -right-48 w-screen max-w-md">
+                          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                            <div className="relative grid gap-8 bg-primary-lightest p-8">
+                              f
+                            </div>
+                          </div>
+                        </Popover.Panel>
+                      </Transition>
                     </>
                   )}
                 </Popover>

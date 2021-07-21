@@ -154,7 +154,7 @@ export const help = [
     name: "Contact Us",
     description:
       "We're here to help you with your purchases, account and any questions you may have.",
-    href: "/contact-us",
+    href: "/contact",
     icon: MailIcon,
   },
   {
@@ -164,10 +164,9 @@ export const help = [
     icon: QuestionMarkCircleIcon,
   },
   {
-    name: "Shipping & Returns",
-    description:
-      "Learn about our shipping methods and their costs along with our most up to date returns policy.",
-    href: "/shipping-returns",
+    name: "Shipping",
+    description: "Learn about our shipping methods and their costs along.",
+    href: "/shipping",
     icon: TruckIcon,
   },
   {
