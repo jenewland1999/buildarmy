@@ -44,6 +44,10 @@ module.exports = {
         source: "/account/:path*",
         destination: "https://buildarmy.com/my-account",
       },
+      {
+        source: "/post/6th-buildarmy-image-contest",
+        destination: "https://buildarmy.com/6th-buildarmy-image-contest",
+      },
     ];
   },
 };
