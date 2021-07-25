@@ -1,19 +1,28 @@
 import {
+  faFacebookF,
+  faInstagram,
+  faTwitter,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+import {
   ArrowCircleRightIcon,
   BookOpenIcon,
   CalendarIcon,
   CreditCardIcon,
   CurrencyDollarIcon,
   GiftIcon,
+  GlobeAltIcon,
   MailIcon,
   PhotographIcon,
   QuestionMarkCircleIcon,
+  ReceiptTaxIcon,
   ScaleIcon,
+  SupportIcon,
   TruckIcon,
   UserGroupIcon,
 } from "@heroicons/react/outline";
 
-export const menuItems = [
+const menuItems = [
   {
     name: "Shop",
   },
@@ -25,7 +34,7 @@ export const menuItems = [
   },
 ];
 
-export const productCategories = [
+const productCategories = [
   {
     name: "WW2 Aircraft",
     description:
@@ -83,7 +92,7 @@ export const productCategories = [
   },
 ];
 
-export const callsToAction = [
+const callsToAction = [
   {
     icon: ArrowCircleRightIcon,
     name: "View All",
@@ -101,7 +110,7 @@ export const callsToAction = [
   },
 ];
 
-export const discover = [
+const discover = [
   {
     name: "About Us",
     description:
@@ -139,7 +148,7 @@ export const discover = [
   },
 ];
 
-export const recentPosts = [
+const recentPosts = [
   { id: 1, name: "Boost your conversion rate", href: "#" },
   {
     id: 2,
@@ -149,7 +158,7 @@ export const recentPosts = [
   { id: 3, name: "Improve your customer experience", href: "#" },
 ];
 
-export const help = [
+const help = [
   {
     name: "Contact Us",
     description:
@@ -176,3 +185,181 @@ export const help = [
     icon: CreditCardIcon,
   },
 ];
+
+const USPs = [
+  {
+    icon: ReceiptTaxIcon,
+    title: "Multibuy Discount",
+    description:
+      "Get 10% discount on all orders over £100 using coupon code BA100.",
+  },
+  {
+    icon: GiftIcon,
+    title: "Collect Reward Points",
+    description:
+      "Collect 1 point for every £1 you spend to use on future orders.",
+  },
+  {
+    icon: SupportIcon,
+    title: "Live Support",
+    description: "Need help? We offer live support via Instagram and Facebook.",
+  },
+  {
+    icon: GlobeAltIcon,
+    title: "International Shipping",
+    description: "We ship across the world to a variety of countries.",
+  },
+];
+
+const categories = [
+  {
+    name: "WWII Tanks",
+    href: "/shop?category=wwii-tanks",
+    imageSrc: "/images/categories/wwii-tanks.jpg",
+  },
+  {
+    name: "WWII Artillery",
+    href: "/shop?category=wwii-artillery",
+    imageSrc: "/images/categories/wwii-artillery.jpg",
+  },
+  {
+    name: "WWII Light Vehicles",
+    href: "/shop?category=wwii-light-vehicles",
+    imageSrc: "/images/categories/wwii-light-vehicles.jpg",
+  },
+  {
+    name: "WWII Planes",
+    href: "/shop?category=wwii-planes",
+    imageSrc: "/images/categories/wwii-planes.jpg",
+  },
+];
+
+const socialMediaMenu = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/Buildarmybricks",
+    title: "Visit the Buildarmy Facebook Page...",
+    icon: faFacebookF,
+  },
+  {
+    name: "Instagram",
+    href: "https://instagram.com/buildarmy",
+    title: "Visit the Buildarmy Instagram feed...",
+    icon: faInstagram,
+  },
+  {
+    name: "Twitter",
+    href: "https://twitter.com/#",
+    title: "Visit the Buildarmy Twitter profile...",
+    icon: faTwitter,
+  },
+  {
+    name: "YouTube",
+    href: "https://youtube.com/#",
+    title: "Visit the Buildarmy YouTube channel...",
+    icon: faYoutube,
+  },
+];
+
+const footerMenus = [
+  {
+    name: "About Us",
+    menuItems: [
+      {
+        name: "History",
+        href: "/about-us/history",
+      },
+      {
+        name: "FAQ",
+        href: "/about-us/faq",
+      },
+      {
+        name: "Gallery",
+        href: "https://instagram.com/buildarmy",
+      },
+      {
+        name: "Rewards System",
+        href: "/about-us/rewards-system",
+      },
+    ],
+  },
+  {
+    name: "Support",
+    menuItems: [
+      {
+        name: "Contact Us",
+        href: "/contact",
+      },
+      {
+        name: "Payment Methods",
+        href: "/payment-methods",
+      },
+      {
+        name: "Shipping Information",
+        href: "/shipping",
+      },
+      {
+        name: "Returns",
+        href: "/returns",
+      },
+    ],
+  },
+  {
+    name: "Account",
+    menuItems: [
+      {
+        name: "Login",
+        href: "/account/login",
+      },
+      {
+        name: "Register",
+        href: "/account/register",
+      },
+      {
+        name: "Order History",
+        href: "/account/order-history",
+      },
+      {
+        name: "Newsletter Subscription",
+        href: "/account/notification-preferences",
+      },
+    ],
+  },
+];
+
+const footerLegalMenu = [
+  {
+    name: "Privacy Policy",
+    href: "/legal/privacy-policy",
+  },
+  {
+    name: "Cookies",
+    href: "/legal/cookies",
+  },
+  {
+    name: "Terms of Use",
+    href: "/legal/terms",
+  },
+  {
+    name: "Accessibility",
+    href: "/legal/accessibility",
+  },
+  {
+    name: "Cookie Settings",
+    href: "/legal/cookies/settings",
+  },
+];
+
+export {
+  categories,
+  productCategories,
+  menuItems,
+  USPs,
+  help,
+  recentPosts,
+  discover,
+  callsToAction,
+  socialMediaMenu,
+  footerMenus,
+  footerLegalMenu,
+};

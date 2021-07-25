@@ -1,66 +1,14 @@
 import Image from "next/image";
-
-import Layout from "@components/Layout/Layout";
-import {
-  GiftIcon,
-  GlobeAltIcon,
-  ReceiptTaxIcon,
-  SupportIcon,
-} from "@heroicons/react/solid";
+import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/outline";
 import Container from "@components/Layout/Container";
+import Layout from "@components/Layout/Layout";
 import Section from "@components/Layout/Section";
-import { productCategories } from "src/data";
-import Link from "next/link";
 import WrappedImage from "@components/WrappedImage";
-
-const USPs = [
-  {
-    icon: ReceiptTaxIcon,
-    title: "Multibuy Discount",
-    description:
-      "Get 10% discount on all orders over £100 using coupon code BA100.",
-  },
-  {
-    icon: GiftIcon,
-    title: "Collect Reward Points",
-    description:
-      "Collect 1 point for every £1 you spend to use on future orders.",
-  },
-  {
-    icon: SupportIcon,
-    title: "Live Support",
-    description: "Need help? We offer live support via Instagram and Facebook.",
-  },
-  {
-    icon: GlobeAltIcon,
-    title: "International Shipping",
-    description: "We ship across the world to a variety of countries.",
-  },
-];
-
-const categories = [
-  {
-    name: "WWII Tanks",
-    href: "/shop?category=wwii-tanks",
-    imageSrc: "/images/categories/wwii-tanks.jpg",
-  },
-  {
-    name: "WWII Artillery",
-    href: "/shop?category=wwii-artillery",
-    imageSrc: "/images/categories/wwii-artillery.jpg",
-  },
-  {
-    name: "WWII Light Vehicles",
-    href: "/shop?category=wwii-light-vehicles",
-    imageSrc: "/images/categories/wwii-light-vehicles.jpg",
-  },
-  {
-    name: "WWII Planes",
-    href: "/shop?category=wwii-planes",
-    imageSrc: "/images/categories/wwii-planes.jpg",
-  },
-];
+import Button from "@components/Button";
+import ProductCard from "@components/ProductCard";
+import ProductGrid from "@components/ProductGrid";
+import { categories, USPs } from "src/data";
 
 const HomePage = () => {
   return (
@@ -75,12 +23,9 @@ const HomePage = () => {
             brick scale models and more.
           </p>
           <div className="text-center">
-            <a
-              href="/shop"
-              className="inline-flex items-center justify-center bg-accent text-secondary-darkest rounded px-3.5 py-2 text-xl text-center"
-            >
+            <Button href="/shop" size={Button.size.LG}>
               Shop Now
-            </a>
+            </Button>
           </div>
         </div>
       </section>
@@ -131,12 +76,15 @@ const HomePage = () => {
               </li>
             ))}
           </ul>
-          <a
-            href="/shop"
-            className="block bg-secondary text-primary-lightest text-center rounded px-3 py-1.5 md:absolute md:top-0 md:right-4"
-          >
-            View all Categories
-          </a>
+          <div className="md:absolute md:top-0 md:right-4">
+            <Button
+              href="/shop"
+              isFullWidth
+              variant={Button.variant.SOLID_SECONDARY}
+            >
+              View all Categories
+            </Button>
+          </div>
         </Container>
       </Section>
       <section className="bg-secondary py-8 xl:py-16">
@@ -146,16 +94,11 @@ const HomePage = () => {
               It&apos;s Competition Time!
             </h2>
             <p className="mb-4 text-white max-w-prose">
-              Buildarmy is proud to present the fifth instalment of the image
+              Buildarmy is proud to present the sixth instalment of the image
               contest. Send in your photos (or rendered images) of military
               related brick creations for a chance to win a big prize.{" "}
             </p>
-            <a
-              href="https://buildarmy.com/6th-buildarmy-image-contest/"
-              className="inline-flex items-center justify-center bg-accent py-1.5 px-3 text-center rounded"
-            >
-              Learn More
-            </a>
+            <Button href="/post/6th-buildarmy-image-contest">Learn More</Button>
           </div>
           <figure className="-mb-8 -mx-4 mt-8 h-56 relative md:-mx-0 md:-mr-4 md:-my-8 md:h-auto xl:-mx-0 xl:-my-16">
             <Image
@@ -173,58 +116,23 @@ const HomePage = () => {
           <h2 className="mb-8 font-display font-bold text-2xl after:block after:mt-2 after:w-16 after:h-1 after:bg-accent">
             Featured Products
           </h2>
-          <article className="mb-4 flex overflow-auto lg:grid lg:grid-cols-3 lg:gap-4 xl:grid-cols-4">
+          <ProductGrid>
             {Array(12)
               .fill("")
-              .map((item, idx) => (
-                <article
-                  key={idx}
-                  className="relative flex-shrink-0 bg-primary-lightest max-w-xs mb-4 mr-4 border border-primary rounded-md lg:m-0"
-                >
-                  <Image
-                    src="/images/product.jpg"
-                    alt=""
-                    layout="responsive"
-                    height={3}
-                    width={4}
-                    className="rounded-t-md"
-                  />
-                  <div className="p-4">
-                    <ul className="flex items-center absolute top-4 left-4">
-                      <li className="px-2 mr-2 mb-2 rounded bg-accent font-bold text-sm uppercase">
-                        NEW
-                      </li>
-                      <li className="px-2 mr-2 mb-2 rounded bg-accent font-bold text-sm uppercase">
-                        BEST SELLER
-                      </li>
-                    </ul>
-                    <h3 className="text-secondary-darkest mb-6 leading-tight font-display font-bold">
-                      Micro Tanks Bundle - Micro Soldiers, Tanks &amp; House
-                    </h3>
-                    <p className="mb-4 leading-none text-secondary-darkest text-2xl font-display font-bold">
-                      £45.99
-                      <small className="ml-1 text-secondary-lightest text-xs font-normal">
-                        inc. VAT
-                      </small>
-                    </p>
-                    <button className="relative z-10 inline-flex items-center justify-center w-full bg-accent text-secondary-darkest rounded py-2 text-center">
-                      Add to Basket
-                    </button>
-                    <a
-                      href="/shop"
-                      className="after:absolute after:inset-0 after:z-0"
-                    ></a>
-                  </div>
-                </article>
+              .map((_, idx) => (
+                <ProductCard key={idx} />
               ))}
-          </article>
-          <a
-            href="/shop"
-            className="block bg-secondary text-primary-lightest text-center rounded px-3 py-1.5 md:absolute md:top-0 md:right-4 md:flex md:items-center md:space-x-2 md:text-lg md:bg-transparent md:text-secondary-darkest"
-          >
-            <span>View all</span>
-            <ArrowRightIcon className="hidden md:block h-4 w-4" />
-          </a>
+          </ProductGrid>
+          <div className="md:absolute md:top-0 md:right-4">
+            <Button
+              href="/shop"
+              isFullWidth
+              variant={Button.variant.SOLID_SECONDARY}
+            >
+              <span>View all</span>
+              <ArrowRightIcon className="hidden md:block h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </section>
       <section className="bg-secondary py-8 xl:py-16">
@@ -247,12 +155,7 @@ const HomePage = () => {
               (£) you spend, you will earn 1 point. 100 points is the equivalent
               of £1. Register now to start earning points.
             </p>
-            <a
-              href="/account/register"
-              className="inline-flex items-center justify-center bg-accent py-1.5 px-3 text-center rounded"
-            >
-              Sign up
-            </a>
+            <Button href="/account/register">Sign Up</Button>
           </div>
         </div>
       </section>
@@ -261,58 +164,23 @@ const HomePage = () => {
           <h2 className="mb-8 font-display font-bold text-2xl after:block after:mt-2 after:w-16 after:h-1 after:bg-accent">
             Latest Products
           </h2>
-          <article className="mb-4 flex overflow-auto lg:grid lg:grid-cols-3 lg:gap-4 xl:grid-cols-4">
+          <ProductGrid>
             {Array(12)
               .fill("")
-              .map((item, idx) => (
-                <article
-                  key={idx}
-                  className="relative flex-shrink-0 bg-primary-lightest max-w-xs mb-4 mr-4 border border-primary rounded-md lg:m-0"
-                >
-                  <Image
-                    src="/images/product.jpg"
-                    alt=""
-                    layout="responsive"
-                    height={3}
-                    width={4}
-                    className="rounded-t-md"
-                  />
-                  <div className="p-4">
-                    <ul className="flex items-center absolute top-4 left-4">
-                      <li className="px-2 mr-2 mb-2 rounded bg-accent font-bold text-sm uppercase">
-                        NEW
-                      </li>
-                      <li className="px-2 mr-2 mb-2 rounded bg-accent font-bold text-sm uppercase">
-                        BEST SELLER
-                      </li>
-                    </ul>
-                    <h3 className="text-secondary-darkest mb-6 leading-tight font-display font-bold">
-                      Micro Tanks Bundle - Micro Soldiers, Tanks &amp; House
-                    </h3>
-                    <p className="mb-4 leading-none text-secondary-darkest text-2xl font-display font-bold">
-                      £45.99
-                      <small className="ml-1 text-secondary-lightest text-xs font-normal">
-                        inc. VAT
-                      </small>
-                    </p>
-                    <button className="relative z-10 inline-flex items-center justify-center w-full bg-accent text-secondary-darkest rounded py-2 text-center">
-                      Add to Basket
-                    </button>
-                    <a
-                      href="/shop"
-                      className="after:absolute after:inset-0 after:z-0"
-                    ></a>
-                  </div>
-                </article>
+              .map((_, idx) => (
+                <ProductCard key={idx} />
               ))}
-          </article>
-          <a
-            href="/shop"
-            className="block bg-secondary text-primary-lightest text-center rounded px-3 py-1.5 md:absolute md:top-0 md:right-4 md:flex md:items-center md:space-x-2 md:text-lg md:bg-transparent md:text-secondary-darkest"
-          >
-            <span>View all</span>
-            <ArrowRightIcon className="hidden md:block h-4 w-4" />
-          </a>
+          </ProductGrid>
+          <div className="md:absolute md:top-0 md:right-4">
+            <Button
+              href="/shop"
+              isFullWidth
+              variant={Button.variant.SOLID_SECONDARY}
+            >
+              <span>View all</span>
+              <ArrowRightIcon className="hidden md:block h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </section>
     </Layout>

@@ -1,9 +1,9 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { sortBy } from "lodash";
 import { Popover, Transition } from "@headlessui/react";
 import {
-  ArrowRightIcon,
   ExternalLinkIcon,
   MenuIcon,
   SearchIcon,
@@ -12,10 +12,8 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-
 import Container from "@components/Layout/Container";
 import classNames from "@utils/classNames";
-
 import baLogo from "@images/buildarmy-logo.jpg";
 import baLogoTransparent from "@images/Logo__img@2x.png";
 import {
@@ -25,7 +23,6 @@ import {
   productCategories,
   recentPosts,
 } from "src/data";
-import { sortBy } from "lodash";
 
 interface Props {}
 
