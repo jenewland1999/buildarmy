@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FlagIcon, MoonIcon, PaperAirplaneIcon } from "@heroicons/react/solid";
 import baLogo from "@images/buildarmy-logo.jpg";
 import brickWarlord from "@images/brick-warlord-logo.png";
-import Container from "@components/Layout/Container";
-import Section from "@components/Layout/Section";
+import Container from "@components/layout/Container";
+import Section from "@components/section/Section";
 import { footerLegalMenu, footerMenus, socialMediaMenu } from "src/data";
 
 interface Props {}

@@ -1,15 +1,27 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ProductSnippetFragment } from "src/generated/graphql";
 import Button from "./Button";
 import ProductBadge from "./ProductBadge";
 
-interface Props {}
+interface Props {
+  product: ProductSnippetFragment;
+}
 
 const ProductCard = (props: Props) => {
+  const { product } = props;
+
+  console.log(product);
+
   return (
     <article className="relative flex-shrink-0 bg-primary-lightest max-w-xs mb-4 mr-4 border border-primary rounded-md lg:m-0">
       <Image
-        src="/images/product.jpg"
-        alt=""
+        src={
+          product?.image?.sourceUrl
+            ? product.image.sourceUrl
+            : "/images/product.jpg"
+        }
+        alt={product?.image?.altText ? product.image.altText : ""}
         layout="responsive"
         height={3}
         width={4}
@@ -18,19 +30,23 @@ const ProductCard = (props: Props) => {
       <div className="p-4">
         <ul className="flex items-center absolute top-4 left-4">
           <ProductBadge>New</ProductBadge>
-          <ProductBadge>Best Seller</ProductBadge>
+          <ProductBadge>{product.featured}</ProductBadge>
         </ul>
         <h3 className="text-secondary-darkest mb-6 leading-tight font-display font-bold">
-          Micro Tanks Bundle - Micro Soldiers, Tanks &amp; House
+          {product.name}
         </h3>
         <p className="mb-4 leading-none text-secondary-darkest text-2xl font-display font-bold">
-          £45.99
+          {product.__typename === "SimpleProduct" && product.price}
           <small className="ml-1 text-secondary-lightest text-xs font-normal">
             inc. VAT
           </small>
         </p>
-        <a href="/shop" className="after:absolute after:inset-0"></a>
-        <Button isFullWidth>Add to Basket</Button>
+        <Link href="/shop">
+          <a className="after:absolute after:inset-0"></a>
+        </Link>
+        <div className="relative z-10">
+          <Button isFullWidth>Add to Basket</Button>
+        </div>
       </div>
     </article>
   );

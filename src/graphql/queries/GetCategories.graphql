@@ -1,0 +1,7 @@
+query GetCategories($first: Int = 4) {
+  productCategories(first: $first) {
+    nodes {
+      ...ProductCategorySnippet
+    }
+  }
+}

@@ -1,0 +1,10 @@
+fragment ProductCategorySnippet on ProductCategory {
+  id
+  name
+  slug
+  image {
+    id
+    altText
+    sourceUrl
+  }
+}

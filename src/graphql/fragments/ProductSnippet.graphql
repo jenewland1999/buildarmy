@@ -1,0 +1,23 @@
+fragment ProductSnippet on Product {
+  id
+  slug
+  name
+  featured
+  type
+  shortDescription
+  image {
+    id
+    sourceUrl
+    altText
+  }
+  ... on SimpleProduct {
+    onSale
+    price
+    regularPrice
+  }
+  ... on VariableProduct {
+    onSale
+    price
+    regularPrice
+  }
+}

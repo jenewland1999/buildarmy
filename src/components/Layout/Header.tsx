@@ -12,7 +12,7 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import Container from "@components/Layout/Container";
+import Container from "@components/layout/Container";
 import classNames from "@utils/classNames";
 import baLogo from "@images/buildarmy-logo.jpg";
 import baLogoTransparent from "@images/Logo__img@2x.png";

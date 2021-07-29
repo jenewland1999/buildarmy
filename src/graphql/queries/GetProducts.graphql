@@ -1,0 +1,7 @@
+query GetProducts($first: Int, $after: String) {
+  products(first: $first, after: $after, where: { featured: true }) {
+    nodes {
+      ...ProductSnippet
+    }
+  }
+}

@@ -42,21 +42,21 @@ const SIZE_MAP: Record<Size, string> = {
 
 const VARIANT_MAP: Record<Variant, string> = {
   [Variant.SOLID_SECONDARY]:
-    "bg-secondary border-secondary text-primary-lightest hover:bg-secondary-light hover:border-secondary-light focus:ring-offset-secondary-darkest focus:ring-secondary",
+    "bg-secondary border-secondary text-primary-lightest hover:bg-secondary-light hover:border-secondary-light focus:ring-offset-primary-lightest focus:ring-secondary",
   [Variant.SOLID_ACCENT]:
-    "bg-accent border-accent text-secondary-darkest hover:bg-accent-light hover:border-accent-light focus:ring-offset-secondary-darkest focus:ring-accent",
+    "bg-accent border-accent text-secondary-darkest hover:bg-accent-light hover:border-accent-light focus:ring-offset-primary-lightest focus:ring-accent",
   [Variant.OUTLINE_SECONDARY]:
-    "border-secondary text-secondary hover:bg-secondary hover:text-primary-lightest focus:ring-offset-secondary-darkest focus:ring-secondary",
+    "border-secondary text-secondary hover:bg-secondary hover:text-primary-lightest focus:ring-offset-primary-lightest focus:ring-secondary",
   [Variant.OUTLINE_ACCENT]:
-    "border-accent text-accent hover:bg-accent hover:text-secondary-darkest focus:ring-offset-secondary-darkest focus:ring-accent",
+    "border-accent text-accent hover:bg-accent hover:text-secondary-darkest focus:ring-offset-primary-lightest focus:ring-accent",
   [Variant.GHOST_SECONDARY]:
-    "bg-secondary border-secondary bg-opacity-25 border-opacity-0 text-primary-lightest hover:bg-opacity-50 focus:ring-offset-secondary-darkest focus:ring-secondary focus:ring-opacity-25",
+    "bg-secondary border-secondary bg-opacity-25 border-opacity-0 text-primary-lightest hover:bg-opacity-50 focus:ring-offset-primary-lightest focus:ring-secondary focus:ring-opacity-25",
   [Variant.GHOST_ACCENT]:
     "bg-accent border-accent bg-opacity-25 border-opacity-0 text-secondary-darkest hover:bg-opacity-50 focus:ring-accent focus:ring-opacity-25",
   [Variant.LINK_SECONDARY]:
-    "border-none text-secondary hover:underline focus:ring-offset-secondary-darkest focus:ring-secondary",
+    "border-none text-secondary hover:underline focus:ring-offset-primary-lightest focus:ring-secondary",
   [Variant.LINK_ACCENT]:
-    "border-none text-accent hover:underline focus:ring-offset-secondary-darkest focus:ring-accent",
+    "border-none text-accent hover:underline focus:ring-offset-primary-lightest focus:ring-accent",
 };
 
 interface Props extends ButtonAnchorProps {

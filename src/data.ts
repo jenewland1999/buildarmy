@@ -350,7 +350,39 @@ const footerLegalMenu = [
   },
 ];
 
+const banners = [
+  {
+    title: "It's Competition Time!",
+    excerpt:
+      "Buildarmy is proud to present the sixth instalment of the image contest. Send in your photos (or rendered images) of military related brick creations for a chance to win a big prize.",
+    image: {
+      altText: "",
+      sourceUrl: "/images/banner-competition.jpg",
+      objectFit: "cover",
+    },
+    callToAction: {
+      href: "/post/6th-buildarmy-image-contest",
+      text: "Learn More",
+    },
+  },
+  {
+    title: "Want to earn rewards?",
+    excerpt:
+      "Buildarmy offers reward points for every purchase. For every pound(£) you spend, you will earn 1 point. 100 points is the equivalent of £1. Register now to start earning points.",
+    image: {
+      altText: "",
+      sourceUrl: "/images/banner-rewards.png",
+      objectFit: "contain",
+    },
+    callToAction: {
+      href: "/account/register",
+      text: "Sign Up",
+    },
+  },
+];
+
 export {
+  banners,
   categories,
   productCategories,
   menuItems,

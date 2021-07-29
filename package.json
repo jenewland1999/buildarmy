@@ -27,9 +27,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "gen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.21",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
@@ -37,16 +39,21 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@headlessui/react": "^1.2.0",
     "@heroicons/react": "^1.0.1",
-    "@netlify/classnames-template-literals": "^1.0.0",
     "deepmerge": "^4.2.2",
     "dompurify": "^2.3.0",
+    "graphql": "^15.5.1",
     "lodash": "^4.17.21",
     "next": "^11.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-responsive": "^8.2.0"
+    "react-responsive": "^8.2.0",
+    "react-spinners": "^0.11.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.21.7",
+    "@graphql-codegen/typescript": "^1.23.0",
+    "@graphql-codegen/typescript-operations": "^1.18.4",
+    "@graphql-codegen/typescript-react-apollo": "^2.3.1",
     "@tailwindcss/aspect-ratio": "^0.2.1",
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/line-clamp": "^0.2.1",

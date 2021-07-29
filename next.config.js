@@ -1,4 +1,7 @@
 module.exports = {
+  images: {
+    domains: ["buildarmy.local"],
+  },
   async rewrites() {
     return [
       {

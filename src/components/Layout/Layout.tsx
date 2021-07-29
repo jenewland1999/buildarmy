@@ -1,17 +1,19 @@
-import Header from "@components/Layout/Header";
-import Footer from "@components/Layout/Footer";
+import Header from "@components/layout/Header";
+import Footer from "@components/layout/Footer";
 
 interface Props {
   children: React.ReactNode;
 }
 
-const Layout = ({ children }: Props) => {
+const Layout = (props: Props) => {
+  const { children } = props;
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <>
       <Header />
-      <main className="flex-grow">{children}</main>
+      <main className="min-h-screen">{children}</main>
       <Footer />
-    </div>
+    </>
   );
 };
 
