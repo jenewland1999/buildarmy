@@ -16,7 +16,7 @@ import Section, {
 } from "../components/section/Section";
 import Container from "../components/layout/Container";
 import USPList from "../components/usps/USPList";
-import { banners, USPs } from "src/data";
+import { banners, USPs } from "../data";
 import USPItem from "../components/usps/USPItem";
 import SectionHeading from "../components/section/SectionHeading";
 import CategoryList from "../components/categories/CategoryList";
