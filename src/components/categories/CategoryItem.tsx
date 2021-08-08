@@ -1,6 +1,6 @@
 import Link from "next/link";
-import WrappedImage from "@components/WrappedImage";
-import { ProductCategorySnippetFragment } from "src/generated/graphql";
+import WrappedImage from "../WrappedImage";
+import { ProductCategorySnippetFragment } from "../../generated/graphql";
 
 interface Props {
   category: ProductCategorySnippetFragment;

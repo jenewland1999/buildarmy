@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { StarIcon } from "@heroicons/react/solid";
-import { ProductSnippetFragment } from "src/generated/graphql";
-import Button from "./Button";
 import { isNumber } from "lodash";
+import { StarIcon } from "@heroicons/react/solid";
+import { ProductSnippetFragment } from "../generated/graphql";
+import Button from "./Button";
 
 interface Props {
   product: ProductSnippetFragment;

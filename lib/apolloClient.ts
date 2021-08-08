@@ -5,7 +5,7 @@ import {
   InMemoryCache,
   NormalizedCacheObject,
 } from "@apollo/client";
-import { isServer } from "@utils/isServer";
+import { isServer } from "../src/utils/isServer";
 
 let apolloClient: ApolloClient<NormalizedCacheObject> | undefined;
 

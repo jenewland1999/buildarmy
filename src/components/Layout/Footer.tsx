@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FlagIcon, MoonIcon, PaperAirplaneIcon } from "@heroicons/react/solid";
-import baLogo from "@images/buildarmy-logo.jpg";
-import brickWarlord from "@images/brick-warlord-logo.png";
+import baLogo from "../../../public/images/buildarmy-logo.jpg";
+import brickWarlord from "../../../public/images/brick-warlord-logo.png";
 import Container from "./Container";
-import Section, { Padding, Variant } from "@components/section/Section";
-import { footerLegalMenu, footerMenus, socialMediaMenu } from "src/data";
+import Section, { Padding, Variant } from "../section/Section";
+import { footerLegalMenu, footerMenus, socialMediaMenu } from "../../data";
 
 const Footer = () => {
   return (

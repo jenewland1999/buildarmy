@@ -1,30 +1,28 @@
+import Image from "next/image";
+import { GetStaticProps } from "next";
 import { ArrowRightIcon } from "@heroicons/react/outline";
-import Container from "@components/layout/Container";
-import Layout from "@components/layout/Layout";
-import Section, {
-  Padding,
-  Variant as SectionVariant,
-} from "@components/section/Section";
-import Button, { Size, Variant as ButtonVariant } from "@components/Button";
-import ProductGrid from "@components/ProductGrid";
-import { banners, USPs } from "src/data";
-import CTASection from "@components/CTASection";
-import SectionHeading from "@components/section/SectionHeading";
-import { initializeApollo } from "@lib/apolloClient";
-import USPList from "@components/usps/USPList";
-import USPItem from "@components/usps/USPItem";
-import CategoryList from "@components/categories/CategoryList";
 import {
   GetCategoriesDocument,
   GetProductsDocument,
   OrderEnum,
   ProductsOrderByEnum,
-} from "src/generated/graphql";
-import heroImage from "@images/hero-image.jpg";
-import Image from "next/image";
-import { GetStaticProps } from "next";
-import { NormalizedCacheObject } from "@apollo/client";
-import { useRouter } from "next/dist/client/router";
+} from "../generated/graphql";
+import Layout from "../components/layout/Layout";
+import Button, { Size, Variant as ButtonVariant } from "../components/Button";
+import heroImage from "../../public/images/hero-image.jpg";
+import Section, {
+  Padding,
+  Variant as SectionVariant,
+} from "../components/section/Section";
+import Container from "../components/layout/Container";
+import USPList from "../components/usps/USPList";
+import { banners, USPs } from "src/data";
+import USPItem from "../components/usps/USPItem";
+import SectionHeading from "../components/section/SectionHeading";
+import CategoryList from "../components/categories/CategoryList";
+import CTASection from "../components/CTASection";
+import ProductGrid from "../components/ProductGrid";
+import { initializeApollo } from "../../lib/apolloClient";
 
 const CategoriesQueryVars = { first: 4 };
 const FeaturedProductsQueryVars = {
@@ -44,22 +42,7 @@ const LatestProductsQueryVars = {
   },
 };
 
-interface Props {
-  locale: string | undefined;
-  locales: string[] | undefined;
-  initialApolloState: NormalizedCacheObject;
-}
-
-const Index = (props: Props) => {
-  const router = useRouter();
-  const { defaultLocale } = router;
-
-  console.log({
-    currentLocale: props.locale,
-    configuredLocales: props.locales,
-    defaultLocale: defaultLocale,
-  });
-
+const Index = () => {
   return (
     <Layout>
       <section className="relative lg:grid lg:grid-cols-2 lg:shadow-md">
@@ -177,8 +160,7 @@ const Index = (props: Props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const { locale, locales } = ctx;
+export const getStaticProps: GetStaticProps = async () => {
   const apolloClient = initializeApollo();
 
   /**
@@ -207,8 +189,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   return {
     props: {
-      locale,
-      locales,
       initialApolloState: apolloClient.cache.extract(),
     },
   };

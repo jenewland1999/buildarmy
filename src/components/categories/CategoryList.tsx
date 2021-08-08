@@ -1,8 +1,8 @@
-import Loader from "@components/Loader";
+import Loader from "../Loader";
 import {
   GetCategoriesQueryVariables,
   useGetCategoriesQuery,
-} from "src/generated/graphql";
+} from "../../generated/graphql";
 import CategoryItem from "./CategoryItem";
 
 interface Props {

@@ -1,4 +1,4 @@
-import { classNames } from "@utils/classNames";
+import { classNames } from "../utils/classNames";
 import Image from "next/image";
 import Button from "./Button";
 

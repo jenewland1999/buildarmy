@@ -1,7 +1,7 @@
 import {
   GetProductsQueryVariables,
   useGetProductsQuery,
-} from "src/generated/graphql";
+} from "../generated/graphql";
 import ProductCard from "./ProductCard";
 import Loader from "./Loader";
 

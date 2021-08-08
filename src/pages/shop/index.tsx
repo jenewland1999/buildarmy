@@ -1,15 +1,15 @@
 import { GetStaticProps } from "next";
-import { initializeApollo } from "@lib/apolloClient";
-import Container from "@components/layout/Container";
-import Layout from "@components/layout/Layout";
-import ProductGrid from "@components/ProductGrid";
-import Section from "@components/section/Section";
-import SectionHeading from "@components/section/SectionHeading";
+import { initializeApollo } from "../../../lib/apolloClient";
+import Container from "../../components/layout/Container";
+import Layout from "../../components/layout/Layout";
+import ProductGrid from "../../components/ProductGrid";
+import Section from "../../components/section/Section";
+import SectionHeading from "../../components/section/SectionHeading";
 import {
   GetProductsDocument,
   OrderEnum,
   ProductsOrderByEnum,
-} from "src/generated/graphql";
+} from "../../generated/graphql";
 
 const LatestProductsQueryVars = {
   first: 1000,

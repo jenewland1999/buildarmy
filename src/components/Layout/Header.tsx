@@ -12,16 +12,16 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import { classNames } from "@utils/classNames";
-import baLogo from "@images/buildarmy-logo.jpg";
-import baLogoTransparent from "@images/Logo__img@2x.png";
+import { classNames } from "../../utils/classNames";
+import baLogo from "../../../public/images/buildarmy-logo.jpg";
+import baLogoTransparent from "../../../public/images/Logo__img@2x.png";
 import {
   callsToAction,
   discover,
   help,
   productCategories,
   recentPosts,
-} from "src/data";
+} from "../../data";
 import Container from "./Container";
 
 const Header = () => {

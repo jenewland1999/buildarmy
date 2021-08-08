@@ -1,6 +1,6 @@
-import Link from "@components/Link";
-import { assertNever } from "@utils/assertNever";
-import { classNames } from "@utils/classNames";
+import Link from "./Link";
+import { assertNever } from "../utils/assertNever";
+import { classNames } from "../utils/classNames";
 
 export enum Bevel {
   NONE,

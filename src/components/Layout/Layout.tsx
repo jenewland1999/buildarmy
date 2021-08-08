@@ -1,5 +1,5 @@
-import Header from "@components/layout/Header";
-import Footer from "@components/layout/Footer";
+import Footer from "./Footer";
+import Header from "./Header";
 
 const Layout: React.FC = ({ children }) => {
   return (
