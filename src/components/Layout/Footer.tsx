@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FlagIcon, MoonIcon, PaperAirplaneIcon } from "@heroicons/react/solid";
 import baLogo from "@images/buildarmy-logo.jpg";
 import brickWarlord from "@images/brick-warlord-logo.png";
-import Container from "@components/layout/Container";
+import Container from "./Container";
 import Section, { Padding, Variant } from "@components/section/Section";
 import { footerLegalMenu, footerMenus, socialMediaMenu } from "src/data";
 
