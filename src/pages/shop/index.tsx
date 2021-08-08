@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import { initializeApollo } from "../../../lib/apolloClient";
-import Container from "../../components/layout/Container";
-import Layout from "../../components/layout/Layout";
+import Container from "../../components/STRUCTURE/Container";
+import Layout from "../../components/STRUCTURE/Layout";
 import ProductGrid from "../../components/ProductGrid";
 import Section from "../../components/section/Section";
 import SectionHeading from "../../components/section/SectionHeading";

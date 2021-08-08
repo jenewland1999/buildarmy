@@ -7,14 +7,14 @@ import {
   OrderEnum,
   ProductsOrderByEnum,
 } from "../generated/graphql";
-import Layout from "../components/layout/Layout";
+import Layout from "../components/STRUCTURE/Layout";
 import Button, { Size, Variant as ButtonVariant } from "../components/Button";
 import heroImage from "../../public/images/hero-image.jpg";
 import Section, {
   Padding,
   Variant as SectionVariant,
 } from "../components/section/Section";
-import Container from "../components/layout/Container";
+import Container from "../components/STRUCTURE/Container";
 import USPList from "../components/usps/USPList";
 import { banners, USPs } from "../data";
 import USPItem from "../components/usps/USPItem";
