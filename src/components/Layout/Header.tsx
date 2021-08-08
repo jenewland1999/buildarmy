@@ -13,7 +13,7 @@ import {
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import Container from "@components/layout/Container";
-import classNames from "@utils/classNames";
+import { classNames } from "@utils/classNames";
 import baLogo from "@images/buildarmy-logo.jpg";
 import baLogoTransparent from "@images/Logo__img@2x.png";
 import {
@@ -24,9 +24,7 @@ import {
   recentPosts,
 } from "src/data";
 
-interface Props {}
-
-const Header = (props: Props) => {
+const Header = () => {
   return (
     <Popover
       as="header"
@@ -348,7 +346,7 @@ const Header = (props: Props) => {
                 </Popover>
               </Popover.Group>
               <Popover.Group className="flex ml-auto items-center lg:justify-end lg:flex lg:space-x-12">
-                <Popover className="relative flex items-center">
+                <Popover className="flex items-center">
                   {({ open }) => (
                     <>
                       <Popover.Button
@@ -376,7 +374,7 @@ const Header = (props: Props) => {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                       >
-                        <Popover.Overlay className="fixed inset-0 mt-6 top-12 bg-secondary bg-opacity-75 transition-opacity" />
+                        <Popover.Overlay className="fixed inset-0 top-14 mt-1 lg:mt-6 lg:top-12 bg-secondary bg-opacity-75 transition-opacity" />
                       </Transition>
 
                       <Transition
@@ -389,10 +387,22 @@ const Header = (props: Props) => {
                         leaveFrom="opacity-100 scale-100"
                         leaveTo="opacity-0 scale-95"
                       >
-                        <Popover.Panel className="absolute z-10 top-full mt-8 mx-3 -right-48 w-screen max-w-md">
+                        <Popover.Panel className="absolute top-full z-10 mt-1.5 p-4 inset-x-0 lg:max-w-xl lg:ml-auto lg:p-6 lg:-mr-4">
                           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                            <div className="relative grid gap-8 bg-primary-lightest p-8">
-                              f
+                            <div className="relative bg-primary-lightest p-4">
+                              <label className="relative">
+                                <span className="sr-only">Search</span>
+                                <SearchIcon className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                                <input
+                                  className="focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none w-full text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10"
+                                  type="text"
+                                  aria-label="Search"
+                                  placeholder="Search"
+                                  onChange={(e) => {
+                                    console.log(e.target.value);
+                                  }}
+                                />
+                              </label>
                             </div>
                           </div>
                         </Popover.Panel>

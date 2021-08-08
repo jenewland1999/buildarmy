@@ -1,7 +1,46 @@
-query GetProducts($first: Int, $after: String) {
-  products(first: $first, after: $after, where: { featured: true }) {
-    nodes {
-      ...ProductSnippet
+query GetProducts(
+  $first: Int
+  $after: String
+  $where: RootQueryToProductConnectionWhereArgs
+) {
+  products(first: $first, after: $after, where: $where) {
+    edges {
+      cursor
+      node {
+        id
+        slug
+        name
+        type
+        averageRating
+        featured
+        shortDescription
+        image {
+          id
+          sourceUrl
+          altText
+        }
+        galleryImages {
+          nodes {
+            id
+            sourceUrl
+            altText
+          }
+        }
+        ... on SimpleProduct {
+          onSale
+          price
+          regularPrice
+          stockStatus
+          stockQuantity
+        }
+        ... on VariableProduct {
+          onSale
+          price
+          regularPrice
+          stockStatus
+          stockQuantity
+        }
+      }
     }
   }
 }

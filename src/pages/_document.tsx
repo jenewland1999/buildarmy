@@ -53,6 +53,8 @@ class MyDocument extends Document {
         </Head>
         <body className="font-body text-secondary-darkest">
           <Main />
+          {/* Here we will mount our modal portal */}
+          <div id="portals" />
           <NextScript />
         </body>
       </Html>

@@ -1,61 +1,108 @@
 import { ArrowRightIcon } from "@heroicons/react/outline";
 import Container from "@components/layout/Container";
 import Layout from "@components/layout/Layout";
-import Section from "@components/section/Section";
-import Button from "@components/Button";
-import ProductCard from "@components/ProductCard";
+import Section, {
+  Padding,
+  Variant as SectionVariant,
+} from "@components/section/Section";
+import Button, { Size, Variant as ButtonVariant } from "@components/Button";
 import ProductGrid from "@components/ProductGrid";
 import { banners, USPs } from "src/data";
-import Banner from "@components/Banner";
+import CTASection from "@components/CTASection";
 import SectionHeading from "@components/section/SectionHeading";
 import { initializeApollo } from "@lib/apolloClient";
 import USPList from "@components/usps/USPList";
 import USPItem from "@components/usps/USPItem";
-import CategoryItem from "@components/categories/CategoryItem";
 import CategoryList from "@components/categories/CategoryList";
 import {
   GetCategoriesDocument,
   GetProductsDocument,
-  useGetCategoriesQuery,
-  useGetProductsQuery,
+  OrderEnum,
+  ProductsOrderByEnum,
 } from "src/generated/graphql";
+import heroImage from "@images/hero-image.jpg";
+import Image from "next/image";
+import { GetStaticProps } from "next";
+import { NormalizedCacheObject } from "@apollo/client";
+import { useRouter } from "next/dist/client/router";
 
-const Index = () => {
-  // const { data, error, loading } = useGetProductsAndCategoriesQuery();
-  const { error, data, loading } = useGetCategoriesQuery();
-  const {
-    error: err,
-    data: dat,
-    loading: loa,
-  } = useGetProductsQuery({
-    variables: { where: { category: "uncategorized" } },
+const CategoriesQueryVars = { first: 4 };
+const FeaturedProductsQueryVars = {
+  first: 8,
+  where: { featured: true, supportedTypesOnly: true },
+};
+const LatestProductsQueryVars = {
+  first: 12,
+  where: {
+    orderby: [
+      {
+        field: ProductsOrderByEnum.Date,
+        order: OrderEnum.Desc,
+      },
+    ],
+    supportedTypesOnly: true,
+  },
+};
+
+interface Props {
+  locale: string | undefined;
+  locales: string[] | undefined;
+  initialApolloState: NormalizedCacheObject;
+}
+
+const Index = (props: Props) => {
+  const router = useRouter();
+  const { defaultLocale } = router;
+
+  console.log({
+    currentLocale: props.locale,
+    configuredLocales: props.locales,
+    defaultLocale: defaultLocale,
   });
-
-  if (err) console.error(err.graphQLErrors);
 
   return (
     <Layout>
-      <section className="relative h-[calc(100vh-56px)] md:h-auto md:py-48 grid place-items-center bg-homepage-hero bg-left-40 bg-cover before:absolute before:inset-0 before:bg-gradient-to-b before:from-secondary-dark before:to-secondary-lightest before:opacity-50">
-        <div className="relative max-w-prose mx-auto px-4">
-          <h2 className="mb-2 font-display font-bold text-primary text-[2.875rem] leading-[1.2] text-center">
-            History of War in <span className="text-accent">Bricks</span>.
-          </h2>
-          <p className="mb-4 text-primary text-lg text-center">
-            Build your armies with original, premium and historically accurate
-            brick scale models and more.
-          </p>
-          <div className="text-center">
-            <Button as="a" href="/shop" size={Button.size.LG}>
-              Shop Now
-            </Button>
+      <section className="relative lg:grid lg:grid-cols-2 lg:shadow-md">
+        <div className="relative max-w-screen-xl mx-auto px-4">
+          <div className="py-8 xs:py-16 md:px-48 md:text-center lg:text-left lg:px-0 lg:py-48 lg:max-w-sm">
+            <h2 className="mb-4 font-display font-bold text-5xl xs:text-6xl">
+              World War in <span className="text-accent">Bricks</span>
+            </h2>
+            <p className="mb-4 xs:text-lg">
+              Build your armies with original, premium, and historically
+              accurate brick scale models and minifigures.
+            </p>
+            <div className="space-x-4">
+              <Button as="a" href="/shop" size={Size.LG}>
+                Shop Now
+              </Button>
+              <Button
+                as="a"
+                href="/about-us"
+                size={Size.LG}
+                variant={ButtonVariant.LINK_SECONDARY}
+              >
+                Learn More
+              </Button>
+            </div>
           </div>
+        </div>
+        <div className="relative h-80 lg:absolute lg:right-0 lg:h-full lg:w-2/4">
+          <Image
+            src={heroImage}
+            alt=""
+            priority={true}
+            layout="fill"
+            objectFit="cover"
+            placeholder="blur"
+          />
         </div>
       </section>
 
       <Section
-        className="-mt-24"
-        padding={Section.padding.MD}
-        variant={Section.variant.PRIMARY}
+        className="-mt-32"
+        padding={Padding.LG}
+        variant={SectionVariant.PLAIN}
       >
         <Container>
           <USPList>
@@ -66,20 +113,16 @@ const Index = () => {
         </Container>
       </Section>
 
-      <Section padding={Section.padding.LG} variant={Section.variant.PRIMARY}>
+      <Section padding={Padding.LG} variant={SectionVariant.PLAIN}>
         <Container>
           <SectionHeading>Product Categories</SectionHeading>
-          <CategoryList>
-            {data?.productCategories?.nodes?.map((category, idx) =>
-              !category ? null : <CategoryItem category={category} key={idx} />
-            )}
-          </CategoryList>
+          <CategoryList variables={CategoriesQueryVars} />
           <div className="md:absolute md:top-0 md:right-4">
             <Button
               as="a"
               href="/shop"
               isFullWidth
-              variant={Button.variant.SOLID_SECONDARY}
+              variant={ButtonVariant.SOLID_SECONDARY}
             >
               View all Categories
             </Button>
@@ -87,24 +130,20 @@ const Index = () => {
         </Container>
       </Section>
 
-      <Banner banner={banners[0]} isFlipped />
+      <CTASection banner={banners[0]} isFlipped />
 
       <Section>
         <Container>
           <SectionHeading>Featured Products</SectionHeading>
 
-          <ProductGrid>
-            {dat?.products?.nodes?.map((product, idx) =>
-              !product ? null : <ProductCard product={product} key={idx} />
-            )}
-          </ProductGrid>
+          <ProductGrid variables={FeaturedProductsQueryVars} />
 
           <div className="md:absolute md:top-0 md:right-4">
             <Button
               as="a"
               href="/shop"
               isFullWidth
-              variant={Button.variant.SOLID_SECONDARY}
+              variant={ButtonVariant.SOLID_SECONDARY}
             >
               <span>View all</span>
               <ArrowRightIcon className="hidden md:block h-4 w-4" />
@@ -113,24 +152,20 @@ const Index = () => {
         </Container>
       </Section>
 
-      <Banner banner={banners[1]} />
+      <CTASection banner={banners[1]} />
 
       <Section className="bg-primary py-8 xl:py-16">
         <Container>
           <SectionHeading>Latest Products</SectionHeading>
 
-          <ProductGrid>
-            {dat?.products?.nodes?.map((product, idx) =>
-              !product ? null : <ProductCard product={product} key={idx} />
-            )}
-          </ProductGrid>
+          <ProductGrid variables={LatestProductsQueryVars} />
 
           <div className="md:absolute md:top-0 md:right-4">
             <Button
               as="a"
               href="/shop"
               isFullWidth
-              variant={Button.variant.SOLID_SECONDARY}
+              variant={ButtonVariant.SOLID_SECONDARY}
             >
               <span>View all</span>
               <ArrowRightIcon className="hidden md:block h-4 w-4" />
@@ -142,22 +177,40 @@ const Index = () => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const { locale, locales } = ctx;
   const apolloClient = initializeApollo();
 
+  /**
+   * Query to retrieve the first four product categories
+   */
   await apolloClient.query({
     query: GetCategoriesDocument,
+    variables: CategoriesQueryVars,
   });
 
+  /**
+   * Query to retrieve the first 12 featured products
+   */
   await apolloClient.query({
     query: GetProductsDocument,
+    variables: FeaturedProductsQueryVars,
+  });
+
+  /**
+   * Query to retrieve the first 12 latest products
+   */
+  await apolloClient.query({
+    query: GetProductsDocument,
+    variables: LatestProductsQueryVars,
   });
 
   return {
     props: {
+      locale,
+      locales,
       initialApolloState: apolloClient.cache.extract(),
     },
-    revalidate: 1,
   };
 };
 

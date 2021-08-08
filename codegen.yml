@@ -1,5 +1,5 @@
 overwrite: true
-schema: https://buildarmy-6a2222.ingress-bonde.easywp.com/graphql
+schema: https://buildarmy-6a2222.ingress-earth.easywp.com/graphql
 documents: ./src/graphql/**/*.graphql
 generates:
   ./src/generated/graphql.tsx:

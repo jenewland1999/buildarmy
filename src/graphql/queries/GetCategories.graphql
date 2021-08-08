@@ -1,7 +1,14 @@
-query GetCategories($first: Int = 4) {
-  productCategories(first: $first) {
-    nodes {
-      ...ProductCategorySnippet
+query GetCategories(
+  $first: Int
+  $after: String
+  $where: RootQueryToProductCategoryConnectionWhereArgs
+) {
+  productCategories(first: $first, after: $after, where: $where) {
+    edges {
+      cursor
+      node {
+        ...ProductCategorySnippet
+      }
     }
   }
 }

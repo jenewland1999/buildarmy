@@ -1,9 +1,9 @@
 import Container from "@components/layout/Container";
 import Layout from "@components/layout/Layout";
-import sanitize from "@utils/sanitise";
+import { sanitize } from "@utils/sanitise";
 import { useRouter } from "next/dist/client/router";
 
-const Page = ({ data }) => {
+const Page = ({ data }: any) => {
   const router = useRouter();
 
   if (router.isFallback) {

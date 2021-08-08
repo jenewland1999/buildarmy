@@ -5,15 +5,13 @@ import { FlagIcon, MoonIcon, PaperAirplaneIcon } from "@heroicons/react/solid";
 import baLogo from "@images/buildarmy-logo.jpg";
 import brickWarlord from "@images/brick-warlord-logo.png";
 import Container from "@components/layout/Container";
-import Section from "@components/section/Section";
+import Section, { Padding, Variant } from "@components/section/Section";
 import { footerLegalMenu, footerMenus, socialMediaMenu } from "src/data";
 
-interface Props {}
-
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
     <footer>
-      <Section padding={Section.padding.LG} variant={Section.variant.SECONDARY}>
+      <Section padding={Padding.LG} variant={Variant.SECONDARY}>
         <Container>
           <div className="md:grid md:grid-cols-[1fr,auto,1fr]">
             <div className="xl:max-w-lg px-1.5 text-white">
@@ -78,7 +76,7 @@ const Footer = (props: Props) => {
           </div>
         </Container>
       </Section>
-      <Section variant={Section.variant.ACCENT}>
+      <Section variant={Variant.ACCENT}>
         <Container>
           <div className=" md:grid md:grid-cols-2 md:items-center">
             <p className="max-w-prose mx-auto mb-6 text-xl text-center md:mx-0 md:mb-0 md:text-left">
@@ -97,7 +95,7 @@ const Footer = (props: Props) => {
           </div>
         </Container>
       </Section>
-      <Section padding={Section.padding.LG} variant={Section.variant.PRIMARY}>
+      <Section padding={Padding.LG} variant={Variant.PRIMARY}>
         <Container>
           <div className="space-y-8 pb-8 sm:grid sm:grid-cols-2 sm:gap-4 sm:gap-y-8 sm:space-y-0 md:grid-cols-4 md:pb-16">
             {footerMenus.map((menu) => (

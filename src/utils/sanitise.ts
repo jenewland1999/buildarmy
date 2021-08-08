@@ -7,6 +7,5 @@ import DOMPurify from "dompurify";
  *
  * @return {string} Sanitized string
  */
-export default function sanitize(content: string): string {
-  return process.browser ? DOMPurify.sanitize(content) : content;
-}
+export const sanitize = (content: string): string =>
+  process.browser ? DOMPurify.sanitize(content) : content;

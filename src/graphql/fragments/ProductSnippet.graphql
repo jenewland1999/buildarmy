@@ -2,22 +2,34 @@ fragment ProductSnippet on Product {
   id
   slug
   name
-  featured
   type
+  averageRating
+  featured
   shortDescription
   image {
     id
     sourceUrl
     altText
   }
+  galleryImages {
+    nodes {
+      id
+      sourceUrl
+      altText
+    }
+  }
   ... on SimpleProduct {
     onSale
     price
     regularPrice
+    stockStatus
+    stockQuantity
   }
   ... on VariableProduct {
     onSale
     price
     regularPrice
+    stockStatus
+    stockQuantity
   }
 }

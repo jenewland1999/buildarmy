@@ -16,6 +16,7 @@ import {
   PhotographIcon,
   QuestionMarkCircleIcon,
   ReceiptTaxIcon,
+  ReplyIcon,
   ScaleIcon,
   SupportIcon,
   TruckIcon,
@@ -96,17 +97,17 @@ const callsToAction = [
   {
     icon: ArrowCircleRightIcon,
     name: "View All",
-    href: "/shop/product-categories",
+    href: "/shop",
   },
   {
     icon: CurrencyDollarIcon,
     name: "Sale",
-    href: "/shop/products?sale=true",
+    href: "/shop?sale=true",
   },
   {
     icon: BookOpenIcon,
     name: "Instructions",
-    href: "/shop/products?category=instructions",
+    href: "/shop?category=instructions",
   },
 ];
 
@@ -149,13 +150,13 @@ const discover = [
 ];
 
 const recentPosts = [
-  { id: 1, name: "Boost your conversion rate", href: "#" },
+  { id: 1, name: "6th Buildarmy Image contest", href: "#" },
   {
     id: 2,
-    name: "How to use search engine optimization to drive traffic to your site",
+    name: "5th Buildarmy Image contest",
     href: "#",
   },
-  { id: 3, name: "Improve your customer experience", href: "#" },
+  { id: 3, name: "Covid-19 Response - How we're affected", href: "#" },
 ];
 
 const help = [
@@ -177,6 +178,13 @@ const help = [
     description: "Learn about our shipping methods and their costs along.",
     href: "/shipping",
     icon: TruckIcon,
+  },
+  {
+    name: "Returns",
+    description:
+      "Find out how to return a product if you're unhappy with it or it's defective.",
+    href: "/shipping",
+    icon: ReplyIcon,
   },
   {
     name: "Payment Methods",
