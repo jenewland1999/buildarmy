@@ -389,7 +389,11 @@ const Header = () => {
                       >
                         <Popover.Panel className="absolute top-full z-10 mt-1.5 p-4 inset-x-0 lg:max-w-xl lg:ml-auto lg:p-6 lg:-mr-4">
                           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                            <div className="relative bg-primary-lightest p-4">
+                            <form
+                              className="relative bg-primary-lightest p-4"
+                              method="GET"
+                              action="https://buildarmy.com/"
+                            >
                               <label className="relative">
                                 <span className="sr-only">Search</span>
                                 <SearchIcon className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -398,12 +402,10 @@ const Header = () => {
                                   type="text"
                                   aria-label="Search"
                                   placeholder="Search"
-                                  onChange={(e) => {
-                                    console.log(e.target.value);
-                                  }}
+                                  name="s"
                                 />
                               </label>
-                            </div>
+                            </form>
                           </div>
                         </Popover.Panel>
                       </Transition>
