@@ -1,28 +1,28 @@
 import Image from "next/image";
 import { GetStaticProps } from "next";
 import { ArrowRightIcon } from "@heroicons/react/outline";
+import { USPs, banners } from "src/data";
 import {
   GetCategoriesDocument,
   GetProductsDocument,
   OrderEnum,
   ProductsOrderByEnum,
-} from "../generated/graphql";
-import Layout from "../components/STRUCTURE/Layout";
-import Button, { Size, Variant as ButtonVariant } from "../components/Button";
-import heroImage from "../../public/images/hero-image.jpg";
+} from "src/generated/graphql";
+import Layout from "@/components/layout/Layout";
+import Button, { Size, Variant as ButtonVariant } from "@/components/Button";
 import Section, {
   Padding,
   Variant as SectionVariant,
-} from "../components/section/Section";
-import Container from "../components/STRUCTURE/Container";
-import USPList from "../components/usps/USPList";
-import { banners, USPs } from "../data";
-import USPItem from "../components/usps/USPItem";
-import SectionHeading from "../components/section/SectionHeading";
-import CategoryList from "../components/categories/CategoryList";
-import CTASection from "../components/CTASection";
-import ProductGrid from "../components/ProductGrid";
-import { initializeApollo } from "../../lib/apolloClient";
+} from "@/components/section/Section";
+import Container from "@/components/layout/Container";
+import USPList from "@/components/usps/USPList";
+import USPItem from "@/components/usps/USPItem";
+import SectionHeading from "@/components/section/SectionHeading";
+import CategoryList from "@/components/categories/CategoryList";
+import CTASection from "@/components/CTASection";
+import ProductGrid from "@/components/ProductGrid";
+import heroImage from "@/images/hero-image.jpg";
+import { initializeApollo } from "@/lib/apolloClient";
 
 const CategoriesQueryVars = { first: 4 };
 const FeaturedProductsQueryVars = {
@@ -42,7 +42,7 @@ const LatestProductsQueryVars = {
   },
 };
 
-const Index = () => {
+const HomePage = () => {
   return (
     <Layout>
       <section className="relative lg:grid lg:grid-cols-2 lg:shadow-md">
@@ -194,4 +194,4 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default Index;
+export default HomePage;
