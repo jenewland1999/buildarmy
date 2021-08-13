@@ -5,6 +5,7 @@ interface Props {
   selector: string;
 }
 
+/* Adapted from https://github.com/vercel/next.js/tree/canary/examples/with-portals */
 const ClientOnlyPortal: React.FC<Props> = ({ children, selector }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [mounted, setMounted] = useState(false);
