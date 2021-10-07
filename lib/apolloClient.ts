@@ -1,18 +1,26 @@
+import https from "https";
 import { useMemo } from "react";
 import {
   ApolloClient,
-  HttpLink,
+  createHttpLink,
   InMemoryCache,
   NormalizedCacheObject,
 } from "@apollo/client";
 import { isServer } from "../src/utils/isServer";
+
+const isProd = process.env.NODE_ENV === "production";
 
 let apolloClient: ApolloClient<NormalizedCacheObject> | undefined;
 
 const createApolloClient = () => {
   return new ApolloClient({
     ssrMode: isServer(),
-    link: new HttpLink({
+    link: createHttpLink({
+      fetchOptions: {
+        agent: new https.Agent({
+          rejectUnauthorized: isProd,
+        }),
+      },
       uri: process.env.WORDPRESS_API_URL,
     }),
     cache: new InMemoryCache(),
